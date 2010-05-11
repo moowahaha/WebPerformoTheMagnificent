@@ -31,6 +31,17 @@ Compare the performance of two sites:
     puts "google is faster than bing"
   end
 
+Make an assertion about website performance
+
+  performo = WebPerformo.new('firefox')
+
+  rea = performo.run('http://www.realestate.com.au')
+  nest = performo.run('http://www.nestoria.com.au')
+
+  # ... assuming realestate.com.au is faster than nestoria...
+  nest.assert > rea #=> exception
+  rea.assert < nest #=> exception
+
 
 == REQUIREMENTS:
 
