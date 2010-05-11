@@ -12,7 +12,6 @@ Hoe.plugin :newgem
 # Run 'rake -T' to see list of generated tasks (from gem root directory)
 $hoe = Hoe.spec 'web_performo' do
   self.developer 'Stephen Hardisty', 'moowahaha@hotmail.com'
-  self.post_install_message = 'PostInstall.txt'
   self.rubyforge_name       = self.name
   self.extra_deps         = [['selenium-webdriver','>= 0.0.18']]
 end
