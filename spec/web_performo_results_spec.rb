@@ -15,7 +15,7 @@ describe WebPerformo::Result do
       @fast_result = WebPerformo::Result.new(:render_speed => 1, :first_byte_speed => 1, :url => 'fast')
     end
 
-    it "should recognise results that are faster" do
+    it "should recognise results that are fast" do
       @fast_result.should < @slow_result
     end
 
