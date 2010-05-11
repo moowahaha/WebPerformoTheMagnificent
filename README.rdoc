@@ -15,32 +15,42 @@ Getting the performance statistics of a given URL:
   performo.run('http://www.google.com')
 
   # high precision seconds taken to return the first byte from the web server
-  performo.first_byte_speed
+  performo.first_byte_speed  #=> 3.189367457887645
 
   # high precision seconds taken to render the page in a browser
-  performo.render_speed
+  performo.render_speed      #=> 6.34988954874875
 
 Compare the performance of two sites:
 
-  performo = WebPerformo.new('firefox')
+  performo = WebPerformo.new()
 
-  google = performo.run('http://www.google.com')
-  bing = performo.run('http://www.bing.com')
+  fast_site = performo.run('http://www.fastsite.com')
+  slow_site = performo.run('http://www.slowsite.com')
 
-  if google > bing
-    puts "google is faster than bing"
+  if slow_site > fast_site
+    puts "slow site is slower than a fast site (obviously)"
   end
 
-Make an assertion about website performance
+Make an assertion about website performance:
 
-  performo = WebPerformo.new('firefox')
+  performo = WebPerformo.new()
 
-  rea = performo.run('http://www.realestate.com.au')
-  nest = performo.run('http://www.nestoria.com.au')
+  fast_site = performo.run('http://www.fastsite.com')
+  slow_site = performo.run('http://www.slowsite.com')
 
-  # ... assuming realestate.com.au is faster than nestoria...
-  nest.assert > rea #=> exception
-  rea.assert < nest #=> exception
+  fast_site.assert > slow_site #=> exception!
+  slow_site.assert < fast_site #=> exception!
+
+  fast_site.assert < slow_site #=> true
+  slow_site.assert > fast_site #=> true
+
+When comparing, remember that we're comparing time elapsed. So...
+
+  slow_site_stats > fast_site_stats #=> true
+  fast_site_stats < slow_site_stats #=> true
+
+  slow_site_stats < fast_site_stats #=> false
+  fast_site_stats > slow_site_stats #=> false
 
 
 == REQUIREMENTS:
