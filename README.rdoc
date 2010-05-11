@@ -1,10 +1,11 @@
 = web_performo
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/moowahaha/WebPerformoTheMagnificent
 
 == DESCRIPTION:
 
-FIX (describe your package)
+Measures the time it takes a given web page to both return the first byte
+and to render in a given browser.
 
 == FEATURES/PROBLEMS:
 
@@ -12,37 +13,58 @@ FIX (describe your package)
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+Getting the performance statistics of a given URL:
+
+  performo = WebPerformo.new('firefox')
+  performo.run('http://www.google.com')
+
+  # high precision seconds taken to return the first byte from the web server
+  performo.first_byte_speed
+
+  # high precision seconds taken to render the page in a browser
+  performo.render_speed
+
+Compare the performance of two sites:
+
+  performo = WebPerformo.new('firefox')
+
+  google = performo.run('http://www.google.com')
+  bing = performo.run('http://www.bing.com')
+
+  if google > bing
+    puts "google is faster than bing"
+  end
+
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* selenium-webdriver >= 0.0.18
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* sudo gem install web_performo
 
 == LICENSE:
 
-(The MIT License)
+Copyright (c) 2010 Stephen Hardisty
 
-Copyright (c) 2010 FIXME full name
+Permission is hereby granted, free of charge, to any person obtaining a copy of this
+software and associated documentation files (the "Software"), to deal in the Software
+without restriction, including without limitation the rights to use, copy, modify,
+merge, publish,distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the following
+conditions:
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+The above copyright notice and this permission notice shall be included in all copies
+or substantial portions of the Software. Except as contained in this notice, neither
+the names of the above copyright holders nor sponsors in relation to the Software
+(REA Group or its subsidiaries) shall be used in advertising or otherwise to promote
+the sale, use or other dealings in the Software without prior written authorization.
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS OR SPONSORS IN RELATION TO THE SOFTWARE (REA GROUP LIMITED OR ITS
+SUBSIDIARIES) OR THEIR RELATED PERSONS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
+OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
