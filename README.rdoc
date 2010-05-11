@@ -7,10 +7,6 @@
 Measures the time it takes a given web page to both return the first byte
 and to render in a given browser.
 
-== FEATURES/PROBLEMS:
-
-* FIX (list of features or problems)
-
 == SYNOPSIS:
 
 Getting the performance statistics of a given URL:
