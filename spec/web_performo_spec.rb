@@ -38,7 +38,7 @@ describe WebPerformo do
       fake_driver.should_receive(:close)
 
       performo = WebPerformo.new('fakeyfox')
-      result = performo.run('http://www.dcyder.com')
+      result = performo.run('www.dcyder.com')
 
       result.render_speed.should > 0.5
       result.render_speed.should < 0.7
