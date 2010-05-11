@@ -19,7 +19,5 @@ $hoe = Hoe.spec 'web_performo' do
 end
 
 require 'newgem/tasks'
-Dir['tasks/**/*.rake'].each { |t| load t }
+Dir['lib/tasks/*.rake'].each { |t| load t }
 
-remove_task :default
-task :default => [:spec]
