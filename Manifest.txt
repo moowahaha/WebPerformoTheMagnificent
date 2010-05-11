@@ -3,10 +3,8 @@ Manifest.txt
 README.rdoc
 Rakefile
 lib/web_performo.rb
+lib/web_performo/assertion.rb
 lib/web_performo/result.rb
-script/console
-script/destroy
-script/generate
 spec/web_performo_results_spec.rb
 spec/web_performo_spec.rb
 tasks/test.rake

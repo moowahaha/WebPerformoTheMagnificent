@@ -4,7 +4,7 @@ include Socket::Constants
 require 'selenium-webdriver'
 
 class WebPerformo
-  VERSION = '0.1'
+  VERSION = '0.2'
 
   def initialize browser = 'firefox'
     @browser = browser.to_sym
