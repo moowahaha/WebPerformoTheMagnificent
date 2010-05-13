@@ -22,7 +22,9 @@ class WebPerformo
 
   def time_first_byte url
     socket = Socket.new(AF_INET, SOCK_STREAM, 0)
-    sockaddr = Socket.sockaddr_in(80, url.downcase.gsub(/^https?:\/\//, ''))
+    url_parts = url.downcase.gsub(/^https?:\/\//, '').split('/')
+    url_host = url_parts.shift
+    sockaddr = Socket.sockaddr_in(80, url_host)
 
     begin
       socket.connect_nonblock(sockaddr)
@@ -31,7 +33,7 @@ class WebPerformo
     end
 
     timer(socket) do |socket|
-      socket.write( "GET / HTTP/1.0\r\n\r\n" )
+      socket.write( "GET /#{url_parts.join('/')} HTTP/1.0\r\nHost: #{url_host}\r\n\r\n" )
       socket.readchar
     end
   end

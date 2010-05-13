@@ -15,11 +15,11 @@ describe WebPerformo do
       Socket.should_receive(:sockaddr_in).with(80, 'www.dcyder.com').and_return(fake_sockaddr)
       fake_socket.should_receive(:connect_nonblock).with(fake_sockaddr)
       
-      fake_socket.should_receive(:write).with(/GET/)
+      fake_socket.should_receive(:write).with(/GET \/dilemma\/all_tags.+\r\nHost: www.dcyder.com/)
       fake_socket.should_receive(:readchar).and_return {sleep 0.5}
 
       performo = WebPerformo.new
-      result = performo.run('http://www.dcyder.com')
+      result = performo.run('http://www.dcyder.com/dilemma/all_tags')
 
       result.first_byte_speed.should > 0.5
       result.first_byte_speed.should < 0.7
