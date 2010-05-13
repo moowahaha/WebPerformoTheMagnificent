@@ -4,8 +4,14 @@
 
 == DESCRIPTION:
 
-Measures the time it takes a given web page to both return the first byte
-and to render in a given browser.
+Library to allow you to time and compare website performance. Built out
+of a project requirement that new websites should not run any slower
+than the old websites.
+
+The measurements taken are the time it takes for the first byte to be
+received from the web server and the time taken for a page to render
+in a given browser.
+
 
 == SYNOPSIS:
 
